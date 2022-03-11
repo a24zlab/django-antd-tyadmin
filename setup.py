@@ -37,5 +37,5 @@ setup(
         ])
     },
     platforms="any",
-    install_requires=["django", "django-simple-captcha", "djangorestframework", "demjson"]
+    install_requires=["django", "django-simple-captcha", "djangorestframework", "demjson3"]
 )
