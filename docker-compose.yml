@@ -1,0 +1,71 @@
+version: '3'
+
+services:
+
+
+#  mtianyan_mysql:
+#      image: mysql:8.0
+#      platform: linux/amd64
+#      restart: always
+#      command: --default-authentication-plugin=mysql_native_password --mysqlx=0
+#      environment:
+#        - MYSQL_PORT=3306  # cannot change this port to other number
+#        - MYSQL_DATABASE=vue_shop # name you want for the database
+#        - MYSQL_USER=root # change to whatever username you wantr
+#        - MYSQL_ROOT_PASSWORD=dev #change to good root password
+#      volumes:
+#        - mysql_data:/var/lib/mysql
+#        - "./sql:/sql"
+
+
+
+  mtianyan_mysql:
+    image: mysql:8.0
+    platform: linux/amd64
+    volumes:
+      - mysql_data:/var/lib/mysql/
+      - "./sql:/sql"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root    # root: root
+      # project:
+      MYSQL_DATABASE: dev
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: dev
+    # fix utf8:
+    command: >
+      mysqld
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "0.0.0.0:3306:3306"
+
+
+  mtianyan_nginx:
+    restart: always
+    image: nginx
+    platform: linux/amd64
+    ports:
+      - "8000:80"
+    volumes:
+      - ./conf/nginx_book.conf:/etc/nginx/conf.d/nginx_book.conf
+    volumes_from:
+      - mtianyan_book_store
+    links:
+      - mtianyan_book_store:web
+
+  mtianyan_book_store:
+    restart: always
+    environment:
+      - USE_DOCKER=1
+    build: .
+    volumes:
+      - .:/VueDjangoFrameWorkShop
+      - ./conf/uwsgi.ini:/etc/uwsgi.ini
+    links:
+      - mtianyan_mysql:mysql
+    command: uwsgi -i /etc/uwsgi.ini
+
+
+volumes:
+  mysql_data:

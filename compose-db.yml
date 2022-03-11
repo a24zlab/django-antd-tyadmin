@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+
+  mtianyan_mysql:
+    image: mysql:8.0
+    platform: linux/amd64
+    volumes:
+      - mysql_data:/var/lib/mysql/
+      - "./sql:/sql"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root    # root: root
+      # project:
+      MYSQL_DATABASE: dev
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: dev
+    # fix utf8:
+    command: >
+      mysqld
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "0.0.0.0:3306:3306"
+
+
+
+
+volumes:
+  mysql_data:
