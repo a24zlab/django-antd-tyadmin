@@ -1145,6 +1145,19 @@ CREATE TABLE `xadmin_api_tyadminsyslog` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+DROP TABLE IF EXISTS `tyadmin_api_tyadminsyslog`;
+CREATE TABLE `tyadmin_api_tyadminsyslog` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `action_time` datetime(6) NOT NULL,
+  `ip_addr` varchar(39) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `action_flag` varchar(32) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `message` longtext COLLATE utf8mb4_general_ci NOT NULL,
+  `log_type` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
+  `user_name` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
 -- ----------------------------
 -- Records of xadmin_api_tyadminsyslog
 -- ----------------------------
@@ -1158,6 +1171,19 @@ INSERT INTO `xadmin_api_tyadminsyslog` VALUES (6, '2020-08-26 22:04:28.383225', 
 INSERT INTO `xadmin_api_tyadminsyslog` VALUES (7, '2020-08-26 22:04:43.707048', '127.0.0.1', '新增', '短信验证: {\'id\': 11, \'code\': \'xxxx\', \'mobile\': \'18092671467\', \'add_time\': \'2020-08-26 22:04:43\'}被新增', 'verifycode', 'mtianyan');
 INSERT INTO `xadmin_api_tyadminsyslog` VALUES (8, '2020-08-26 22:05:14.495716', '127.0.0.1', '新增', '商品类别: {\'id\': 127, \'parent_category_text\': \'理学类\', \'name\': \'测试分类\', \'code\': \'test_code\', \'desc\': \'测试分类描述\', \'category_type\': 1, \'is_tab\': False, \'add_time\': \'2020-08-26 22:05:14\', \'parent_category\': 121}被新增', 'goodscategory', 'mtianyan');
 INSERT INTO `xadmin_api_tyadminsyslog` VALUES (9, '2020-10-09 22:55:09.775042', '127.0.0.1', '登录', '登录成功', 'login', '');
+COMMIT;
+
+
+BEGIN;
+INSERT INTO `tyadmin_api_tyadminsyslog` VALUES (1, '2020-08-26 21:53:09.852166', '127.0.0.1', '登录', '登录成功', 'login', '');
+INSERT INTO `tyadmin_api_tyadminsyslog` VALUES (2, '2020-08-26 21:53:24.845121', '127.0.0.1', '登录', '登录成功', 'login', '');
+INSERT INTO `tyadmin_api_tyadminsyslog` VALUES (3, '2020-08-26 21:53:44.582157', '127.0.0.1', '更新', '商品类别: {\'id\': 121, \'parent_category_text\': \'理学类\', \'name\': \'理学类\', \'code\': \'001\', \'desc\': \'001\', \'category_type\': 1, \'is_tab\': False, \'add_time\': \'2018-05-03T22:56:00\', \'parent_category\': 121}被更新', 'goodscategory', 'mtianyan');
+INSERT INTO `tyadmin_api_tyadminsyslog` VALUES (4, '2020-08-26 21:54:01.646204', '127.0.0.1', '更新', '商品类别: {\'id\': 121, \'parent_category_text\': \'理学类\', \'name\': \'理学类\', \'code\': \'001\', \'desc\': \'001\', \'category_type\': 1, \'is_tab\': True, \'add_time\': \'2018-05-03T22:56:00\', \'parent_category\': 121}被更新', 'goodscategory', 'mtianyan');
+INSERT INTO `tyadmin_api_tyadminsyslog` VALUES (5, '2020-08-26 22:03:05.587420', '127.0.0.1', '删除', '收货地址: 天涯11云南大学123被删除', 'useraddress', 'mtianyan');
+INSERT INTO `tyadmin_api_tyadminsyslog` VALUES (6, '2020-08-26 22:04:28.383225', '127.0.0.1', '更新', '用户信息: {\'id\': 15, \'password\': \'pbkdf2_sha256$100000$wTDZNmGTnlRB$Q+jkWWkV2PPtkeFcudZY41OxrEpSuk3aUGwxn7bCUR8=\', \'last_login\': \'2018-05-04 01:50:23\', \'is_superuser\': True, \'username\': \'mtianyan666\', \'first_name\': \'田同学的小迷妹儿\', \'last_name\': \'田\', \'is_staff\': True, \'is_active\': True, \'date_joined\': \'2018-05-03 22:55:10\', \'name\': \'11\', \'birthday\': \'2020-08-26\', \'gender\': \'female\', \'mobile\': \'18092671323\', \'email\': \'mtianyan@qq.com\', \'groups\': [], \'user_permissions\': []}被更新', 'userprofile', 'mtianyan');
+INSERT INTO `tyadmin_api_tyadminsyslog` VALUES (7, '2020-08-26 22:04:43.707048', '127.0.0.1', '新增', '短信验证: {\'id\': 11, \'code\': \'xxxx\', \'mobile\': \'18092671467\', \'add_time\': \'2020-08-26 22:04:43\'}被新增', 'verifycode', 'mtianyan');
+INSERT INTO `tyadmin_api_tyadminsyslog` VALUES (8, '2020-08-26 22:05:14.495716', '127.0.0.1', '新增', '商品类别: {\'id\': 127, \'parent_category_text\': \'理学类\', \'name\': \'测试分类\', \'code\': \'test_code\', \'desc\': \'测试分类描述\', \'category_type\': 1, \'is_tab\': False, \'add_time\': \'2020-08-26 22:05:14\', \'parent_category\': 121}被新增', 'goodscategory', 'mtianyan');
+INSERT INTO `tyadmin_api_tyadminsyslog` VALUES (9, '2020-10-09 22:55:09.775042', '127.0.0.1', '登录', '登录成功', 'login', '');
 COMMIT;
 
 -- ----------------------------
