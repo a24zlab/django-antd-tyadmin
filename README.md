@@ -1,11 +1,43 @@
-# Vue前台 +  Django3.1 + DjangoRestful Framework + Ant Design Pro V4 开发的二手书商城网站及后台管理
+# mall:
+
+
+- Vue前台 +  Django3.1 + DjangoRestful Framework + Ant Design Pro V4 开发的二手书商城网站及后台管理
+
+
+## hotfix:
+
+- mysql: 更改配置
+
+- fix:
+
+```bash
+
+# fix:
+pip install git+https://github.com/a24zlab/django-antd-tyadmin.git
+
+
+# run:
+python manage.py runserver
+
+# admin:
+python manage.py gen_all
+python manage.py init_admin
+
+
+```
+
+
+
+## notes:
+
+
 
 [![Build Status](https://travis-ci.org/mtianyan/hexoBlog-Github.svg?branch=master)](https://travis-ci.org/mtianyan/hexoBlog-Github)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
 使用TyAdmin(现代化的Xadmin替代品)生成管理后台前后端，并自动对接。✨ 强烈推荐使用:
 
->https://github.com/mtianyan/tyadmin_api_cli 
+>https://github.com/mtianyan/tyadmin_api_cli
 
 📨 Tyadmin互动交流反馈QQ群: 304094780
 
@@ -27,7 +59,7 @@ docker-compose up
 # 导入数据
 docker exec -it vuedjangoantdprobookshop_mtianyan_mysql_1 bash
 mysql -u root -p -D vue_shop < sql/book_shop.sql
-# 输入密码: mtianyanroot 
+# 输入密码: mtianyanroot
 ```
 
 ### 本地环境运行
