@@ -1,4 +1,20 @@
-# TyAdmin: Django 基于Models 的 **No Code** 零代码零学习成本管理后台前后端生成工具, 由Django Restful Framework 和 Ant Design Pro V4 驱动
+# TyAdmin: 
+
+## hotfix: 
+
+- 更新 setup.py 依赖包 `demjson3`
+
+```
+
+install_requires=["django", "django-simple-captcha", "djangorestframework", "demjson3"]
+
+
+```
+
+
+## notes: 
+
+- Django 基于Models 的 **No Code** 零代码零学习成本管理后台前后端生成工具, 由Django Restful Framework 和 Ant Design Pro V4 驱动
 
 ![](https://img.shields.io/pypi/v/tyadmin-api-cli)
 ![](https://img.shields.io/pypi/wheel/tyadmin-api-cli)
