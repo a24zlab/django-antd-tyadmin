@@ -1,6 +1,6 @@
 # TyAdmin: 
 
-## hotfix: 
+## hotfix: 2022-03
 
 - 更新 setup.py 依赖包 `demjson3`
 
@@ -8,6 +8,15 @@
 
 install_requires=["django", "django-simple-captcha", "djangorestframework", "demjson3"]
 
+
+```
+
+- 安装方式: 
+
+
+```
+# fix:
+pip install git+https://github.com/a24zlab/django-antd-tyadmin.git
 
 ```
 
